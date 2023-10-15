@@ -23,7 +23,7 @@ const getProduct = cache(async (id: string) => {
   return product;
 });
 
-export const generateMetaData = async ({
+export const generateMetadata = async ({
   params: { id },
 }: Props): Promise<Metadata> => {
   const product = await getProduct(id);
