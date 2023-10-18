@@ -7,6 +7,7 @@ import ShoppingCartButton from "./ShoppingCartButton";
 import UserMenuButton from "./UserMenuButton";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../(routes)/api/auth/[...nextauth]/route";
+import SearchInput from "./SearchInput";
 
 const searchProducts = async (formData: FormData) => {
   "use server";
@@ -32,15 +33,7 @@ const Navbar = async () => {
           </Link>
         </div>
         <div className="flex-none gap-2">
-          <form action={searchProducts}>
-            <div className="form-control">
-              <input
-                name="searchQuery"
-                placeholder="Search"
-                className="input input-bordered w-full min-w-[100px]"
-              />
-            </div>
-          </form>
+          <SearchInput searchProducts={searchProducts} />
           <ShoppingCartButton cart={cart} />
           <UserMenuButton session={session} />
         </div>
